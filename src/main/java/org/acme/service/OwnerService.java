@@ -7,6 +7,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Transactional
 @ApplicationScoped
@@ -17,13 +18,16 @@ public class OwnerService {
 
     public Owner addOwner(Owner owner) {
 
+        em.persist(owner);
         return owner;
 
     }
 
-    public void persistOwner(Owner owner) {
+    public List listOwners() {
 
-        em.persist(owner);
+        return em.createQuery("SELECT o FROM Owner o")
+                .getResultList();
+
     }
 
 

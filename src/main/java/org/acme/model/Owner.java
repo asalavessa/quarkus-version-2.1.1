@@ -18,7 +18,6 @@ public class Owner {
     private int id;
 
 
-
     @Embedded
     @Column(table = "home_address")
     private Address home_address;
@@ -30,8 +29,7 @@ public class Owner {
     public void setHome_address(Address home_address) {
         this.home_address = home_address;
     }
-
-
+    
 
 
     private String name;
